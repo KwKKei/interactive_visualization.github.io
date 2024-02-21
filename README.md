@@ -1,34 +1,18 @@
-# create-svelte
+# Interactive Visualization
 
-## Generate static site using svelte SSG
+## The graph
+<iframe src="https://wys6299.github.io/Interactive_Visualization_Project" width="100%" height="500px"></iframe>
 
-To assist you in creating a static webpage for GitHub Pages using Svelte, we have developed a template for you: [ShaokangJiang/svelte-template (github.com)](https://github.com/ShaokangJiang/svelte-template).
 
-Please follow the link provided, and initiate the creation of a new repository.
 
-![image-20240210175403813](./assets/image-20240210175403813.png)
+## Design Rationale:
 
-After GitHub completes the cloning process, navigate to the settings page. On the left panel, under the "Pages" tab, locate the "Source" section and select "GitHub Actions" as the source. 
+In designing our visualization, we aimed to represent the relationship between GDP, CO2 emissions, and death rates due to indoor air pollution across different countries and years. We chose a scatter plot as our primary visualization technique to effectively display this multivariate data. The x-axis represents GDP, the y-axis represents death rates, and the size of the circles represents population size. Additionally, we used color encoding to distinguish between continents, providing another layer of information.
 
-Clone this repository and proceed with your work. Upon completion, commit and push your changes. The corresponding GitHub Actions will then execute, building a static website hosted at `https://your-username.github.io/your-repo-name` for you.
+We chose logarithmic scaling for the x-axis to accommodate the wide range of GDP values across countries while maintaining clarity in the visualization. For the y-axis, linear scaling was appropriate as death rates are typically represented in a linear scale. We used square root scaling for circle radius to prevent large population sizes from dominating the visualization.
 
-![image-20240210175104365](./assets/image-20240210175104365.png)
+To enable interactivity, we added a slider component that allows users to select specific years. This allows for dynamic exploration of the data over time, providing insights into trends and patterns.
 
-### Migrate from your project
+## Development Process:
 
-If you have started on the project and want to switch to using this template, you can copy your `src` folder, go to the local clone of your version of this template, then paste it. When it says the file exists, simply click replace, and you can continue working on your version of this template.
-
-## Setup
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building static site
-
-Just push to github. 
+We spent significant time importing and processing the data to ensure it was in a suitable format for visualization. This involved parsing the CSV file, converting date fields, and preparing the data for display.
